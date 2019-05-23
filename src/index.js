@@ -21,8 +21,8 @@ export default function image(options = {}) {
 			}
 			return `const img = require('./${basename(id)}'); export default img;`;
 		},
-		ongenerate(options, rendered) {
-			const dir = dirname(options.dest || options.file);
+		generateBundle(bundleOptions) {
+			const dir = dirname(bundleOptions.dest || bundleOptions.file);
 			if (!existsSync(dir)) {
 				mkdirSync(dir);
 			}
